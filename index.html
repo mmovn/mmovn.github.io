@@ -4,11 +4,49 @@
 		<title>MMOVN</title>
 	</head>
 	<script>
-		window.location = "https://vnkeep.page.link/ZmnuRdKLJ7F9jtQSA"
+	function searchToObject() {
+	  var pairs = window.location.search.substring(1).split("&"),
+		obj = {},
+		pair,
+		i;
+
+	  for ( i in pairs ) {
+		if ( pairs[i] === "" ) continue;
+
+		pair = pairs[i].split("=");
+		obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+	  }
+
+	  return obj;
+	}
+		let uri = searchToObject();
+		let getvip = true;
+		
+		
+		var data = {
+			id: [
+				"0",
+				"https://vnkeep.page.link/ZmnuRdKLJ7F9jtQSA"
+			]
+		}
+		
+		if(uri["getvip"] == undefined || uri["getvip"] == true || uri["getvip"] == 1){
+			if(uri["id"] != undefined){
+				let fakeId = parseInt(uri["id"])
+				data.id.forEach((value,fid)=>{
+					console.log(value,fid)
+					if(fid == fakeId){
+						window.location = value
+					}
+				})
+			}else{
+				console.log("error")
+			}
+		}
 	</script>
 	<body>
-		welcome to MMO VietNam,
-		Bạn sẽ được tự động chuyển tới web đích sau ít giây,
-		hoặc hãy bám vào đây
+		welcome to MMO VietNam,<br/>
+		Bạn sẽ được tự động chuyển tới web đích sau ít giây, <br/>
+		hoặc hãy bám vào đây và inbox cho mình nhé <a href="https://www.facebook.com/truyentdm">here</a>
 	</body>
 </html>
